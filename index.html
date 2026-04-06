@@ -28,13 +28,13 @@
         </div>
 
         <div class="content">
-            <form>
-                <input type="text" placeholder="Ім'я">
-                <input type="text" placeholder="Прізвище">
-                <input type="email" placeholder="ваша електронна пошта">
-                <input type="tel" placeholder="номер телефону">
+            <form id="loginForm">
+                <input type="text" id="firstName" placeholder="Ім'я" required>
+                <input type="text" id="lastName" placeholder="Прізвище" required>
+                <input type="email" id="email" placeholder="ваша електронна пошта" required>
+                <input type="tel" id="phone" placeholder="номер телефону" required>
 
-                <button type="submit" disabled class="disabled-btn">відправити</button>
+                <button type="submit" class="submit-btn">відправити</button>
             </form>
 
             <div class="register-link">
