@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <!-- Фон для затемнення -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Блок з помилкою -->
+    <div class="error-modal" id="errorModal">
+        <p>Упс! Реєстрація поки не працює 😔</p>
+        <button class="ok-btn" onclick="closeError()">ОК</button>
+    </div>
+
+    <div class="container">
+        <div class="header-text">
+            <h1>Вітаю на курсах англійської мови!</h1>
+            <div class="warning-box">
+                <span>⚠️</span>
+                <p>Увага! Сайт у розробці, більшість функцій можуть не працювати. Вибачте!</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <form>
+                <input type="text" placeholder="Ім'я">
+                <input type="text" placeholder="Прізвище">
+                <input type="email" placeholder="ваша електронна пошта">
+                <input type="tel" placeholder="номер телефону">
+
+                <button type="submit" disabled class="disabled-btn">відправити</button>
+            </form>
+
+            <div class="register-link">
+                <p>Немає акаунту?</p>
+                <button class="secondary-btn" onclick="showError()">
+                    Зареєструватися
+                </button>
+            </div>
+
+            <div class="warning-text">
+                <p>Увага! Проект ще не запущений, прошу зайдіть пізніше.</p>
+            </div>
+        </div>
+    </div>
+    <script src="error.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель учня</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <main class="profile-card">
+        <div class="user-header">
+            <img id="user-photo" src="https://via.placeholder.com/100" alt="Фото учня" class="avatar">
+            <div class="user-main-info">
+                <h1 id="full-name">Завантаження...</h1>
+                <p id="email"></p>
+                <p id="phone"></p>
+            </div>
+        </div>
+
+        <hr>
+
+        <section class="lesson-details">
+            <div class="teacher-block">
+                <img id="teacher-photo" src="https://via.placeholder.com/60" alt="Фото вчителя" class="avatar-small">
+                <div>
+                    <label>Ваш викладач:</label>
+                    <p id="teacher-name"></p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span>Оплачено: <strong id="paid-lessons">0</strong></span>
+                    <span>Залишилось: <strong id="left-lessons" class="highlight">0</strong></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="links-section">
+            <a id="lesson-link" href="#" target="_blank" class="btn btn-primary">Приєднатися до уроку</a>
+            <a id="board-link" href="#" target="_blank" class="btn btn-secondary">Онлайн дошка</a>
+        </section>
+
+        <section class="homework-section">
+            <h3>Домашнє завдання</h3>
+            <div class="homework-box">
+                <p id="homework-text">Завдань поки немає.</p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="yarik.js"></script>
+</body>
+</html>

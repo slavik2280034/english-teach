@@ -1,0 +1,20 @@
+{
+    "firstName": "Ярослав",
+    "lastName": "Видавський",
+    "email": "...",
+    "phone": "...",
+    "userPhoto": "https://i.pravatar.cc/150?u=student", 
+    "teacher": {
+        "name": "{Хоченков В'ячеслав}",
+        "photo": "https://i.pravatar.cc/150?u=teacher"
+    },
+    "stats": {
+        "paid": 0,
+        "left": 0
+    },
+    "links": {
+        "lesson": "https://meet.google.com/wac-yzft-rqc",
+        "board": "https://miro.com/welcome/OHU3aGZwd2w0TVZBVGdFdHNlM2hFTDltSzhKWnErQ3RvSjdScTRycktSdEtQL01SdU0zYURyV0EyNS91Uyt2STVZbkEwbW1SNmVDUFpReEpKWnlLdVQ1Z2NRUVRLa3ozKzVTcFhHbGJtdGloQ1c0NmVRbnA0Nk41b2RaTHhYVlRQdGo1ZEV3bUdPQWRZUHQzSGl6V2NBPT0hdjE=?share_link_id=338536156176"
+    },
+    "homework": ""
+}

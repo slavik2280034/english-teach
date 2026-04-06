@@ -1,0 +1,215 @@
+/* Базові налаштування для всього сайту */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Анімація появи всієї сторінки при завантаженні */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Анімація пульсації для блоку попередження */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4); }
+    70% { transform: scale(1.02); box-shadow: 0 0 10px 5px rgba(255, 193, 7, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Контейнер, що об'єднує текст та форму */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1000px;
+    align-items: center;
+    animation: fadeInUp 0.8s ease-out forwards; /* Плавна поява */
+}
+
+/* Текстовий блок зліва */
+.header-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.header-text h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+/* Крутий анімований warning-box */
+.warning-box {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #856404;
+    animation: pulse 2s infinite; /* Постійно пульсує */
+}
+
+/* Біла картка з формою */
+.content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 380px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стилі для полів вводу */
+input {
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: all 0.3s ease; /* Плавна реакція на клік */
+}
+
+input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    transform: translateY(-2px); /* Легке підняття при наборі тексту */
+    outline: none;
+}
+
+/* Кнопка */
+button {
+    padding: 12px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Ефект при наведенні на активну кнопку */
+button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+/* Ефект натискання */
+button:active:not(:disabled) {
+    transform: scale(0.96);
+}
+
+/* Стиль для ВИМКНЕНОЇ кнопки */
+button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Текст під кнопкою всередині форми */
+.warning-text {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Блок під формою */
+.register-link {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee; /* Тонка лінія-розділювач */
+    text-align: center;
+}
+
+.register-link p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+/* Окремий стиль для кнопки реєстрації, щоб вона відрізнялася від основної */
+.secondary-btn {
+    background-color: transparent; /* Прозорий фон */
+    color: #007BFF;
+    border: 1px solid #007BFF;
+    padding: 8px 15px;
+    width: 100%; /* На всю ширину, як і кнопка входу */
+}
+
+.secondary-btn:hover {
+    background-color: #f0f7ff;
+    color: #9cc8f8;
+}
+
+/* Основний фон (затемнення) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Напівпрозорий чорний */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+  z-index: 999;
+}
+
+/* Вікно помилки */
+.error-modal {
+  position: fixed;
+  top: -200px; /* Початкова позиція за межами екрана */
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 20px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Ефект "пружини" */
+}
+
+/* Активний стан (коли додано клас .active) */
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.error-modal.active {
+  top: 50px; /* Куди виїжджає помилка */
+}
+
+/* Стиль кнопки ОК */
+.ok-btn {
+  margin-top: 15px;
+  padding: 8px 25px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
