@@ -1,11 +1,12 @@
 {
     "firstName": "Ярослав",
     "lastName": "Видавський",
-    "email": "...",
-    "phone": "...",
+    "email": "---",
+    "password": "yaryk2026",
+    "phone": "+380----------",
     "userPhoto": "https://i.pravatar.cc/150?u=student", 
     "teacher": {
-        "name": "{Хоченков В'ячеслав}",
+        "name": "Хоченков В'ячеслав",
         "photo": "https://i.pravatar.cc/150?u=teacher"
     },
     "stats": {
