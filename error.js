@@ -41,7 +41,7 @@ loginForm.addEventListener('submit', async (e) => {
             pass === userData.password) {
             
             alert('Вхід успішний! Вітаємо, ' + fName);
-            window.location.href = 'profile.html'; // Переконайся, що назва файлу з профілем правильна
+            window.location.href = 'yarik.html'; // Переконайся, що назва файлу з профілем правильна
         } else {
             alert('Упс! Дані не збігаються. Перевір пароль або написання імені.');
         }
