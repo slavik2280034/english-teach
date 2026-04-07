@@ -1,42 +1,52 @@
-// Функції для модалки помилки (залишаємо як було)
+// Елементи модалки
+const modal = document.getElementById('errorModal');
+const overlay = document.getElementById('overlay');
+
+// Функції для модалки (твоя частина)
 function showError() {
-    document.getElementById('overlay').style.display = 'block';
-    document.getElementById('errorModal').style.display = 'block';
+    modal.classList.add('active');
+    overlay.classList.add('active');
 }
 
 function closeError() {
-    document.getElementById('overlay').style.display = 'none';
-    document.getElementById('errorModal').style.display = 'none';
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
 }
 
-// Логіка входу
+// Закриваємо при натисканні на саме затемнення
+overlay.addEventListener('click', closeError);
+
+// --- ЛОГІКА ВХОДУ ---
 const loginForm = document.getElementById('loginForm');
 
 loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Щоб сторінка не перезавантажилася
+    e.preventDefault();
 
-    // Отримуємо дані з форми
     const fName = document.getElementById('firstName').value;
     const lName = document.getElementById('lastName').value;
     const email = document.getElementById('email').value;
+    const pass = document.getElementById('password').value; // Не забудь додати id="password" в HTML!
 
     try {
-        // Тягнемо наш JSON (через Live Server)
-        const response = await fetch('data.json');
+        // Використовуємо шлях, який точно спрацює на GitHub
+        const response = await fetch('./data.json');
+        if (!response.ok) throw new Error('Файл даних не знайдено');
+        
         const userData = await response.json();
 
-        // Перевірка (ім'я, прізвище та пошта мають збігатися)
+        // Перевірка всіх даних + пароль
         if (fName === userData.firstName && 
             lName === userData.lastName && 
-            email === userData.email) {
+            email === userData.email &&
+            pass === userData.password) {
             
-            alert('Вхід успішний!');
-            window.location.href = 'profile.html'; // Назва файлу твоєї сторінки з профілем
+            alert('Вхід успішний! Вітаємо, ' + fName);
+            window.location.href = 'profile.html'; // Переконайся, що назва файлу з профілем правильна
         } else {
-            alert('Користувача не знайдено або дані невірні!');
+            alert('Упс! Дані не збігаються. Перевір пароль або написання імені.');
         }
     } catch (error) {
         console.error("Помилка:", error);
-        alert('Помилка сервера. Переконайся, що запущено Live Server!');
+        alert('Помилка завантаження. Перевір консоль (F12)');
     }
 });
