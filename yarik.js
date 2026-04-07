@@ -19,7 +19,7 @@ async function loadProfile() {
         document.getElementById('lesson-link').href = userData.links.lesson;
         document.getElementById('board-link').href = userData.links.board;
 
-        document.getElementById('homework-text').innerText = userData.homework;
+        document.getElementById('homework-text').innerHTML = userData.homework || "Завдань поки немає";
     } catch (error) {
         console.error("Помилка завантаження JSON:", error);
     }
